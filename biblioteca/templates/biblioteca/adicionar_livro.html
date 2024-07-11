@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar livro</title>
+    <style>
+        body {
+            background-color: {{ cor_favorita }};
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo, {{ usuario.nome }}</h1>
+    <p>Adicione um novo livro a sua biblioteca</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="titulo">Titulo: </label>
+        <input type="text" id="titulo" name="titulo" required>
+        <label for="autor">Autor: </label>
+        <input type="text" id="autor" name="autor" required>
+        <label for="ano_livro">Ano de publicação: </label>
+        <input type="number" id="ano_livro" name="ano_livro" required>
+        <label for="categoria">Categoria: </label>
+        <input type="text" id="categoria" name="categoria" required>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <a href="{% url 'personalizar' %}">Personalizar</a>
+    <a href="{% url 'dashboard' %}">Dashboard</a>
+    <a href="{% url 'logout' %}">Sair</a>
+</body>
+</html>

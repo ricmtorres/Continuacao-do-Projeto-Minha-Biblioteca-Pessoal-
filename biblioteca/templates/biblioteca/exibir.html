@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exibir livros</title>
+    <style>
+        body {
+            background-color: {{ cor_favorita }};
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo, {{ usuario.nome }}</h1>
+    <h2>Veja os livros da sua biblioteca</h2>
+    <form method="post">
+        {% csrf_token %}
+        <h3>Ordenar por:</h3>
+        <input type="radio" id="titulo" name="criterio_busca" value="titulo" required>
+        <label for="titulo">Título</label>
+        <input type="radio" id="autor" name="criterio_busca" value="autor">
+        <label for="autor">Autor</label>
+        <input type="radio" id="ano_livro" name="criterio_busca" value="ano_livro">
+        <label for="ano_livro">Ano de publicação</label>
+        <input type="radio" id="categoria" name="criterio_busca" value="categoria">
+        <label for="categoria">Categoria</label>
+
+
+        <button type="submit">Ordenar</button>
+    </form>
+
+    <h3>Resultados:</h3>
+    <p>{{ livros_ordenados }}</p>
+
+    <a href="{% url 'personalizar' %}">Personalizar</a>
+    <a href="{% url 'dashboard' %}">Dashboard</a>
+    <a href="{% url 'logout' %}">Sair</a>
+</body>
+</html>

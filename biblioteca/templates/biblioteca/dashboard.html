@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Dashboard</title>
+    <style>
+        body {
+            background-color: {{ cor_favorita }};
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo, {{ usuario.nome }}</h1>
+    <p>A sua cor preferida é: {{ cor_favorita }}</p>
+    <p>Seus livros são:</p>
+    <p>{{ lista }}</p>
+    <a href="{% url 'personalizar' %}" class="btn btn-primary">Personalizar</a>
+    <a href="{% url 'adicionar_livro' %}" class="btn btn-success">Adicionar livro</a>
+    <a href="{% url 'buscar' %}" class="btn btn-info">Buscar livro</a>
+    <a href="{% url 'exibir' %}" class="btn btn-warning">Exibir livro</a>
+    <a href="{% url 'logout' %}" class="btn btn-danger">Sair</a>
+
+</body>
+</html>
